@@ -1,0 +1,85 @@
+# Welcome to Jekyll!
+#
+# This config file is meant for settings that affect your whole blog, values
+# which you are expected to set up once and rarely edit after that. If you find
+# yourself editing this file very often, consider using Jekyll's data files
+# feature for the data you need to update frequently.
+#
+# For technical reasons, this file is *NOT* reloaded automatically when you use
+# 'bundle exec jekyll serve'. If you change this file, please restart the server process.
+#
+# If you need help with YAML syntax, here are some quick references for you:
+# https://learn-the-web.algonquindesign.ca/topics/markdown-yaml-cheat-sheet/#yaml
+# https://learnxinyminutes.com/docs/yaml/
+
+# Site settings
+# These are used to personalize your new site. If you look in the HTML files,
+# you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
+# You can create any custom variable you would like, and they will be accessible
+# in the templates via {{ site.myvariable }}.
+
+# Your custom site settings
+title: 精品 AI 工具站
+description: 匯集各類 AI 圖像生成、寫作助手、語音處理等實用工具，助你提升效率。
+baseurl: "" # 如果你打算使用自定義域名，這裡可以留空；如果部署到 GitHub Pages 的子目錄，例如 yourusername.github.io/repo-name，這裡就需要填寫 /repo-name
+url: "http://localhost:4000" # 本地開發 URL，部署時會被覆蓋
+
+# Build settings
+theme: minima
+plugins:
+  - jekyll-feed
+
+# Exclude from processing.
+# The following items will not be processed, by default.
+# Any item listed under the `exclude:` key here will be automatically added to
+# the internal "default list".
+#
+# Excluded items can be processed by explicitly listing the directories or
+# their entries' file path in the `include:` list.
+#
+# exclude:
+#   - .sass-cache/
+#   - .jekyll-cache/
+#   - gemfiles/
+#   - Gemfile
+#   - Gemfile.lock
+#   - node_modules/
+#   - vendor/bundle/
+#   - vendor/cache/
+#   - vendor/gems/
+#   - vendor/ruby/
+
+# Custom Collections for AI Tools
+collections:
+  ai_tools:
+    output: true
+    permalink: /tool/:name/
+
+# --- 新增：AI 工具主要分類列表 ---
+# 這裡定義了你的 10 個主分類。
+# 'name' 是顯示在網站上的名稱。
+# 'slug' 是用來生成 URL 路徑的部分 (例如：/categories/image-design-generation/)。
+# 確保 slug 是小寫，用連字符連接，且與你在 categories/ 文件夾中的子文件夾名稱完全一致。
+categories_list:
+  - name: 圖像與設計生成
+    slug: image-design-generation
+  - name: 影片與動畫生成
+    slug: video-animation-generation
+  - name: 文字生成與寫作輔助
+    slug: text-writing-assistance
+  - name: 語音處理與配音
+    slug: voice-processing-dubbing
+  - name: 聊天機器人與客服自動化
+    slug: chatbots-customer-service
+  - name: 生產力與辦公助理
+    slug: productivity-office-assistant
+  - name: 教育與學習輔助
+    slug: education-learning-aid
+  - name: 開發與程式輔助
+    slug: development-programming-aid
+  - name: 搜尋與知識問答
+    slug: search-knowledge-qa
+  - name: 商業智能與行銷工具
+    slug: ecommerce-marketing-tools
+  - name: 音樂與作曲
+    slug: music-composition

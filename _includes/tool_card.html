@@ -1,0 +1,31 @@
+<div class="tool-card">
+  <a href="{{ tool.url | relative_url }}">
+    {% if tool.image %}
+      <img src="{{ tool.image | relative_url }}" alt="{{ tool.title }} Icon" class="tool-card-image">
+    {% else %}
+      <img src="{{ "/assets/placeholder.png" | relative_url }}" alt="Placeholder Icon" class="tool-card-image">
+    {% endif %}
+    <h3>{{ tool.title }}</h3>
+    <p>{{ tool.tagline }}</p> 
+    <div class="tool-card-meta">
+      {% assign current_tool_categories = tool.categories | default: tool.category | compact %}
+
+      {% if current_tool_categories %}
+        {% for cat_slug in current_tool_categories %}
+          {% assign found_category_name = cat_slug %}
+          {% for defined_cat in site.categories_list %}
+            {% if defined_cat.slug == cat_slug %}
+              {% assign found_category_name = defined_cat.name %}
+              {% break %}
+            {% endif %}
+          {% endfor %}
+          <span class="category-tag">{{ found_category_name }}</span>
+        {% endfor %}
+      {% endif %}
+
+      {% for tag in tool.tags limit: 2 %} 
+        <span class="tag">{{ tag }}</span>
+      {% endfor %}
+    </div>
+  </a>
+</div>

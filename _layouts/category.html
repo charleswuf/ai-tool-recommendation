@@ -1,0 +1,58 @@
+---
+layout: default
+---
+
+{% assign category_slug = page.permalink | remove: "/categories/" | remove: "/" %}
+{% assign category_name = "" %}
+{% for cat in site.categories_list %}
+  {% if cat.slug == category_slug %}
+    {% assign category_name = cat.name %}
+    {% break %}
+  {% endif %}
+{% endfor %}
+
+<h1>{{ category_name }} AI 工具</h1>
+<p>探索 {{ category_name }} 領域的頂尖 AI 工具。</p>
+
+---
+
+<div class="tool-grid">
+  {% assign category_tools = site.ai_tools | where_exp:"tool", "tool.categories contains category_slug or tool.category == category_slug" %}
+  {% if category_tools.size > 0 %}
+    {% for tool in category_tools %}
+      <div class="tool-card"> {# <-- 這是統一的工具卡片開始 #}
+        <a href="{{ tool.url | relative_url }}">
+          {% if tool.image %}
+            <img src="{{ tool.image | relative_url }}" alt="{{ tool.title }} Icon" class="tool-card-image">
+          {% else %}
+            <img src="{{ "/assets/placeholder.png" | relative_url }}" alt="Placeholder Icon" class="tool-card-image">
+          {% endif %}
+          <h3>{{ tool.title }}</h3>
+          <p>{{ tool.tagline }}</p> {# <-- 使用 tagline #}
+          <div class="tool-card-meta">
+            {% assign current_tool_categories = tool.categories | default: tool.category | compact %}
+
+            {% if current_tool_categories %}
+              {% for cat_slug in current_tool_categories %}
+                {% assign found_category_name = cat_slug %}
+                {% for defined_cat in site.categories_list %}
+                  {% if defined_cat.slug == cat_slug %}
+                    {% assign found_category_name = defined_cat.name %}
+                    {% break %}
+                  {% endif %}
+                {% endfor %}
+                <span class="category-tag">{{ found_category_name }}</span>
+              {% endfor %}
+            {% endif %}
+
+            {% for tag in tool.tags limit: 2 %} {# <-- 顯示標籤 #}
+              <span class="tag">{{ tag }}</span>
+            {% endfor %}
+          </div>
+        </a>
+      </div> {# <-- 這是統一的工具卡片結束 #}
+    {% endfor %}
+  {% else %}
+    <p>此分類下暫無工具。</p>
+  {% endif %}
+</div>

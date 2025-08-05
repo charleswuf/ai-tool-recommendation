@@ -1,0 +1,44 @@
+---
+layout: default
+title: 精品 AI 工具站 - 發現最棒的 AI 應用
+description: 匯集各類 AI 圖像生成、寫作助手、語音處理等實用工具，助你提升效率。
+---
+
+<div class="home-container">
+  <h2 style="text-align: center; color: #0056b3; margin-bottom: 30px;">發現最適合你的 AI 工具</h2>
+
+  <div class="tool-grid" id="toolGrid">
+    {% assign all_ai_tools = site.ai_tools %}
+    {% for tool in all_ai_tools %}
+      {% include tool_card.html tool=tool %}
+    {% endfor %}
+  </div>
+
+  <div style="text-align: center; margin-top: 30px;">
+    <a href="/all-tools/" style="display: inline-block; padding: 10px 20px; background-color: #007bff; color: white; text-decoration: none; border-radius: 5px; font-weight: bold;">查看所有 AI 工具 &raquo;</a>
+  </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const grid = document.getElementById('toolGrid');
+    const itemsPerPage = 15;
+    if (grid) {
+        let items = Array.from(grid.children);
+
+        // Fisher-Yates (Knuth) shuffle 演算法
+        for (let i = items.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [items[i], items[j]] = [items[j], items[i]];
+        }
+
+        // 清空現有網格
+        grid.innerHTML = '';
+
+        // 只添加隨機排序後的前 15 個元素
+        for (let i = 0; i < Math.min(items.length, itemsPerPage); i++) {
+            grid.appendChild(items[i]);
+        }
+    }
+});
+</script>
