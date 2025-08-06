@@ -21,8 +21,11 @@
 # Your custom site settings
 title: 精品 AI 工具站
 description: 匯集各類 AI 圖像生成、寫作助手、語音處理等實用工具，助你提升效率。
-baseurl: "" # 如果你打算使用自定義域名，這裡可以留空；如果部署到 GitHub Pages 的子目錄，例如 yourusername.github.io/repo-name，這裡就需要填寫 /repo-name
-url: "http://localhost:4000" # 本地開發 URL，部署時會被覆蓋
+# baseurl: "" # 如果你打算使用自定義域名，這裡可以留空；如果部署到 GitHub Pages 的子目錄，例如 yourusername.github.io/repo-name，這裡就需要填寫 /repo-name
+# url: "http://localhost:4000" # 本地開發 URL，部署時會被覆蓋
+url: "https://charleswuf.github.io"
+baseurl: "/ai-tool-recommendation"
+
 
 # Build settings
 theme: minima
