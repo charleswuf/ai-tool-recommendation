@@ -31,7 +31,7 @@ url: "http://localhost:4000" # 本地開發 URL，部署時會被覆蓋
 theme: minima
 plugins:
   - jekyll-feed
-
+  - jekyll-sitemap
 # Exclude from processing.
 # The following items will not be processed, by default.
 # Any item listed under the `exclude:` key here will be automatically added to
