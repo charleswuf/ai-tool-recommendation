@@ -1,12 +1,13 @@
-name: Deploy Jekyll with GitHub Pages
+name: Deploy Jekyll with Custom Version
 
 on:
   push:
     branches:
-      - main # 確保這裡的分支名稱與你的主分支一致
+      - main
+  workflow_dispatch:
 
 jobs:
-  build:
+  build_and_deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Code
@@ -15,7 +16,7 @@ jobs:
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: '3.3.0' # 這裡指定了你希望使用的 Ruby 版本
+          ruby-version: '3.3.0'
           bundler-cache: true
 
       - name: Build Jekyll site
@@ -27,5 +28,5 @@ jobs:
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
-          github_token: ${{ secrets.ACCESS_TOKEN }} # 這裡使用了你創建的令牌
+          github_token: ${{ secrets.ACCESS_TOKEN }}
           publish_dir: ./_site
