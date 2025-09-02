@@ -1,0 +1,398 @@
+/* assets/style.css */
+
+/* 基本樣式重置 */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+/* 頂部導航欄 */
+.site-header {
+    background-color: #333;
+    color: #fff;
+    padding: 1rem 0;
+}
+
+/* 確保 default.html 中的 header/footer 也有基本的樣式 */
+.header-container, .footer-container {
+    width: 90%;
+    max-width: 960px; /* 保持與 header/footer 一致的寬度 */
+    margin: 0 auto;
+    display: flex; /* 使用 flexbox 讓標題和導航並排 */
+    justify-content: space-between; /* 兩端對齊 */
+    align-items: center; /* 垂直居中 */
+}
+
+.site-header h1 {
+    margin: 0; /* 移除標題的默認外邊距 */
+}
+
+.site-header h1 a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.site-header .main-nav { /* 針對主導航欄的樣式 */
+    display: flex; /* 讓 nav 內的子元素並排 */
+    align-items: center; /* 垂直居中對齊 */
+}
+
+.site-header .main-nav a { /* 針對主導航欄連結的樣式 */
+    color: #fff;
+    text-decoration: none;
+    margin-left: 20px;
+    font-weight: bold;
+    white-space: nowrap; /* 防止連結文字換行 */
+    padding: 5px 0; /* 增加點擊區域 */
+}
+.site-header .main-nav a:hover {
+    text-decoration: underline;
+}
+
+
+/* --- 分類導航區域樣式 --- */
+.category-nav-wrapper {
+    background-color: #f0f0f0; /* 分類導航的背景色，與網站主背景區分 */
+    padding: 10px 0;
+    border-bottom: 1px solid #ddd; /* 底部細線分隔 */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05); /* 輕微陰影 */
+}
+
+.category-nav ul {
+    list-style: none; /* 移除列表點 */
+    padding: 0;
+    margin: 0 auto; /* 居中 */
+    display: flex; /* 使用 flexbox 讓分類連結並排 */
+    flex-wrap: wrap; /* 如果空間不足，允許換行 */
+    justify-content: center; /* 水平居中對齊 */
+    max-width: 960px; /* 與主要內容容器寬度一致 */
+}
+
+.category-nav ul li {
+    margin: 5px 10px; /* 分類項目間距 */
+}
+
+.category-nav ul li a {
+    color: #007bff; /* 分類連結的顏色 */
+    text-decoration: none;
+    padding: 5px 10px;
+    border: 1px solid #007bff; /* 邊框 */
+    border-radius: 20px; /* 圓角膠囊形狀 */
+    transition: all 0.2s ease; /* 平滑過渡效果 */
+    white-space: nowrap; /* 防止分類名稱換行 */
+    display: inline-block; /* 確保 padding 和 border 生效 */
+    font-size: 0.9em;
+}
+
+.category-nav ul li a:hover {
+    background-color: #007bff; /* 懸停時背景變藍 */
+    color: #fff; /* 懸停時文字變白 */
+    text-decoration: none; /* 懸停時移除下劃線 */
+}
+
+
+/* --- 通用內容容器樣式 --- */
+.main-content-container {
+    max-width: 960px; /* 將最大寬度調回到 960px，與 header/footer 一致，確保充足兩側空白 */
+    margin: 20px auto;    /* 讓內容水平居中，並留出上下外邊距 */
+    padding: 20px;     /* 內容與容器邊緣的內邊距 */
+    background-color: #fff; /* 內容區塊的白色背景 */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* 柔和陰影 */
+    border-radius: 8px; /* 圓角 */
+    box-sizing: border-box; /* 確保 padding 不會增加總寬度 */
+}
+
+/* 工具詳情頁樣式 (保留其內容樣式) */
+.tool-detail-container h1 {
+    color: #0056b3;
+    margin-bottom: 10px;
+}
+.tagline {
+    font-style: italic;
+    color: #666;
+    margin-bottom: 20px;
+}
+.tool-image {
+    max-width: 100%; /* 圖片寬度適應容器 */
+    height: auto;
+    display: block;
+    margin: 0 auto 20px auto;
+    border-radius: 4px;
+}
+.tool-meta p {
+    margin-bottom: 5px;
+}
+.tag {
+    display: inline-block;
+    background-color: #e0e0e0;
+    color: #555;
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-size: 0.85em;
+    margin-right: 5px;
+    margin-bottom: 5px;
+}
+.official-link-button {
+    display: inline-block;
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 20px;
+    transition: background-color 0.3s ease;
+}
+.official-link-button:hover {
+    background-color: #0056b3;
+}
+
+.pros-cons h3 {
+    color: #0056b3;
+    margin-top: 25px;
+    margin-bottom: 10px;
+}
+.pros-cons ul {
+    list-style: none; /* 移除預設列表點 */
+    padding: 0;
+}
+.pros-cons ul li {
+    background-color: #f9f9f9;
+    margin-bottom: 5px;
+    padding: 8px 12px;
+    border-left: 3px solid #007bff; /* 優點 */
+}
+/* 你可以為缺點設定不同的邊框顏色 */
+/* .pros-cons ul li.con { border-left: 3px solid #dc3545; } */
+
+
+/* 底部樣式 */
+.site-footer {
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 40px;
+    background-color: #333;
+    color: #fff;
+    font-size: 0.9em;
+}
+
+.footer-container {
+    flex-direction: row; /* 在大螢幕下保持水平 */
+}
+.site-footer p {
+    margin: 5px 0; /* 調整底部文字的間距 */
+}
+.site-footer a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 10px;
+}
+.site-footer a:hover {
+    text-decoration: underline;
+}
+
+/* --- 工具網格佈局 (目標：每行 3 個卡片，大小適中) --- */
+.tool-grid {
+    display: grid;
+    /* 使用 minmax(280px, 1fr) 讓卡片在 960px 寬的容器內，自然呈現 3 列 */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px; /* 卡片間距 */
+    padding: 0; /* 左右內邊距由 .main-content-container 控制 */
+}
+
+
+/* --- 工具卡片樣式 (核心調整：圖片保持原始比例並適應寬度) --- */
+.tool-card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden; /* 確保內容不會溢出圓角 */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center; /* 讓卡片內容居中 */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 280px; /* 設置一個合理的最小高度，可根據整體內容調整 */
+    padding-bottom: 15px; /* 為底部內容留出空間 */
+}
+
+.tool-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+}
+
+.tool-card a {
+    text-decoration: none;
+    color: inherit;
+    display: flex; /* 使用 flexbox 讓內部元素垂直排列 */
+    flex-direction: column;
+    align-items: center; /* 水平居中 */
+    justify-content: flex-start; /* 讓內容從頂部開始排列，保持圖片優先 */
+    flex-grow: 1;
+    padding: 0; /* 移除超連結自身的內邊距，讓內部元素控制 */
+}
+
+.tool-card-image {
+    width: 100%; /* 關鍵：圖片容器寬度佔滿卡片寬度 */
+    /* 移除 height 和 max-height，讓圖片的高度完全由其內容決定，保持比例 */
+    overflow: hidden; /* 確保圖片不超出容器 */
+    border-bottom: 1px solid #eee; /* 底部細線分隔 */
+    padding-bottom: 10px; /* 圖片下方內邊距 */
+    padding-top: 10px; /* 圖片上方內邊距 */
+    box-sizing: border-box; /* 確保 padding 不會增加圖片總尺寸 */
+    /* 讓圖片的圓角與卡片頂部圓角一致 */
+    border-radius: 8px 8px 0 0;
+}
+
+.tool-card-image img {
+    width: 100%; /* 確保圖片填充其父容器的寬度 */
+    height: auto; /* 關鍵：高度自動調整，完美保持圖片原始比例 */
+    display: block; /* 確保圖片是塊級元素，佔據其容器的全部寬度 */
+    object-fit: contain; /* 確保圖片完整顯示，不裁剪，如果圖片寬高比非常特殊，可能會有一些留白 */
+    /* 如果圖片總是希望填滿空間，寧願裁剪，可以嘗試 object-fit: cover; */
+}
+
+
+.tool-card h3 {
+    color: #0056b3;
+    font-size: 1.3em;
+    margin-top: 15px; /* 標題上方的間距 */
+    margin-bottom: 10px;
+    min-height: 2.6em; /* 確保兩行標題的高度 */
+    line-height: 1.3em;
+    padding: 0 15px; /* 標題左右內邊距 */
+    box-sizing: border-box;
+}
+
+.tool-card p {
+    color: #555;
+    font-size: 0.95em;
+    margin-bottom: 15px;
+    min-height: 40px; /* 描述最小高度 */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    padding: 0 15px; /* 描述左右內邊距 */
+    box-sizing: border-box;
+}
+
+.tool-card-meta {
+    margin-top: auto; /* 將 meta 信息推到底部 */
+    padding-top: 15px;
+    border-top: 1px solid #eee;
+    text-align: center;
+    width: 100%; /* 確保 meta 區塊佔滿寬度 */
+    padding-left: 15px; /* meta 左右內邊距 */
+    padding-right: 15px;
+    box-sizing: border-box;
+}
+
+.category-tag {
+    display: inline-block;
+    background-color: #e6f7ff;
+    color: #007bff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 0.8em;
+    font-weight: bold;
+    margin-right: 8px;
+    margin-bottom: 5px;
+}
+
+/* 響應式調整 */
+@media (max-width: 992px) { /* 對於中等螢幕，例如平板電腦 */
+    .tool-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+    }
+    .tool-card {
+        min-height: 250px; /* 平板上卡片高度可適度調整 */
+    }
+    .tool-card-image {
+        padding-bottom: 8px;
+        padding-top: 8px;
+    }
+    .tool-card h3 {
+        font-size: 1.2em;
+        min-height: 2.4em;
+    }
+    .tool-card p {
+        font-size: 0.9em;
+        min-height: 38px;
+    }
+}
+
+@media (max-width: 768px) { /* 對於手機螢幕 */
+    .tool-grid {
+        grid-template-columns: 1fr; /* 單列佈局 */
+        gap: 15px;
+    }
+
+    .main-content-container {
+        padding: 15px;
+        margin: 15px auto;
+    }
+
+    .tool-card {
+        min-height: 220px; /* 手機上卡片高度再縮小 */
+    }
+    .tool-card-image {
+        padding-bottom: 6px;
+        padding-top: 6px;
+    }
+    .tool-card h3 {
+        font-size: 1.1em;
+        margin-top: 10px;
+        min-height: auto;
+    }
+    .tool-card p {
+        font-size: 0.85em;
+        margin-bottom: 8px;
+        min-height: auto;
+        -webkit-line-clamp: 3;
+        line-clamp: 3;
+    }
+    .category-tag {
+        font-size: 0.7em;
+        padding: 4px 8px;
+    }
+
+    .header-container {
+        flex-direction: column;
+        text-align: center;
+        padding: 15px 20px;
+    }
+    .site-header .main-nav {
+        flex-direction: column;
+        width: 100%;
+        margin-top: 10px;
+    }
+    .site-header .main-nav a {
+        margin: 5px 0;
+        width: 100%;
+        padding: 5px 0;
+    }
+
+    .category-nav-wrapper {
+        padding: 5px 0;
+    }
+    .category-nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+    .category-nav ul li {
+        margin: 5px 0;
+    }
+    .category-nav ul li a {
+        width: 80%;
+        max-width: 250px;
+        text-align: center;
+    }
+}
